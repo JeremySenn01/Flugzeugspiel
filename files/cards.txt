@@ -1,0 +1,9 @@
+false,GREEN/false,RED/true,BLUE/false,RED
+true,GREEN/true,BLUE/false,GREEN/true,BLUE
+true,BLUE/false,GREEN/false,GREEN/false,RED
+true,BLUE/false,BLUE/true,RED/true,BLUE
+false,RED/true,BLUE/false,BLUE/false,BLUE
+true,BLUE/false,RED/true,RED/true,RED
+true,RED/true,GREEN/true,BLUE/true,BLUE
+false,GREEN/false,RED/false,RED/true,RED
+true,BLUE/true,BLUE/false,GREEN/true,BLUE
