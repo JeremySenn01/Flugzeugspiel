@@ -4,6 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SolutionCalculator {
+
+    /**
+     * Recursive Method that is responsible for finding all Solutions.
+     * Is takes one of the remaining Cards and tries to place it on one of the board's empty squares.
+     * By rotating the card it computes every combination.
+     * When no cards remain / every card is placed, all solutions are returned.
+     * It is possible that none are found (depends on the randomly generated cards)
+     *
+     * @param board -- filled, empty or partially empty board
+     * @param remainingCards -- list of unplaced cards
+     * @return List of valid boards
+     */
     public static List<Board> findAllSolutions(Board board, List<Card> remainingCards) {
         List<Board> solutionBoards = new ArrayList<>();
 

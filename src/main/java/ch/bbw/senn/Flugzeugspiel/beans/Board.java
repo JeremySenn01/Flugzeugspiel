@@ -46,6 +46,10 @@ public class Board {
         return newBoard;
     }
 
+    /**
+     * This method checks if the board is complete and correct
+     * @return
+     */
     public Boolean isValid() {
         for (Coordinates coordinates : fields.keySet()) {
             Card card = fields.get(coordinates);
@@ -88,7 +92,10 @@ public class Board {
         return true;
     }
 
-    //Sort Cards to prepare for displaying results
+    /**
+     * Sort Cards to prepare for displaying results
+     * @return List of Cards
+     */
     public List<Card> sortFieldsByCoordinates() {
         List<Card> sortedFields = new ArrayList<>();
         for (int y = 2; y >= 0; y--) {

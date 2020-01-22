@@ -1,18 +1,14 @@
 package ch.bbw.senn.Flugzeugspiel.beans;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class CardGenerator {
 
-    private List<Card> generatedCards = new ArrayList<>();
 
-    public void generateCards() {
+    public List<Card> generateCards() {
+        List<Card> generatedCards = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             Card card = new Card();
 
@@ -23,8 +19,13 @@ public class CardGenerator {
 
             generatedCards.add(card);
         }
+        return generatedCards;
     }
 
+    /**
+     * Generate a random plane
+     * @return a new plane
+     */
     private Plane generatePlane() {
         boolean isFront = new Random().nextBoolean();
         int num = new Random().nextInt(3);
@@ -38,21 +39,6 @@ public class CardGenerator {
             color = Color.GREEN;
         }
         return new Plane(isFront, color);
-    }
-
-    public void writePlanes() {
-        File f = new File("files/cards.txt");
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(f));
-
-            for (Card c : generatedCards) {
-                writer.write(c.toString());
-                writer.newLine();
-            }
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 }

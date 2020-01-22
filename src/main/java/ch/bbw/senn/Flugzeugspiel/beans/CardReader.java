@@ -6,6 +6,10 @@ import java.util.List;
 
 public class CardReader {
 
+    /**
+     * This method reads cards from a file in a csv-Format
+     * @return List of Cards
+     */
     public List<Card> readCards() {
         List<Card> generatedCards = new ArrayList<>();
         File input = new File("files/cards.txt");
@@ -23,6 +27,11 @@ public class CardReader {
         return generatedCards;
     }
 
+    /**
+     * Maps Card from CSV String to Card object
+     * @param line -- Csv string
+     * @return card -- mapped card
+     */
     private Card generateCard(String line) {
         Card card = new Card();
         String[] planeString = line.split("/");
