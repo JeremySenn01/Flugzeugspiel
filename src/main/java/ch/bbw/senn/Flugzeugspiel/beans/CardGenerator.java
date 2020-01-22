@@ -31,9 +31,9 @@ public class CardGenerator {
         Color color;
 
         if (num == 0) {
-            color = Color.RED;
+            color = Color.WHITE;
         } else if (num == 1) {
-            color = Color.BLUE;
+            color = Color.BLACK;
         } else {
             color = Color.GREEN;
         }

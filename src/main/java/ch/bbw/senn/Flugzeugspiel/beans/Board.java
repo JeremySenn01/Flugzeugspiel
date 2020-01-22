@@ -95,7 +95,6 @@ public class Board {
             for (int x = 0; x < 3; x++) {
                 Coordinates coords = new Coordinates(x, y);
                 sortedFields.add(fields.get(coords));
-                System.out.println("coords = " + coords);
             }
         }
         return sortedFields;

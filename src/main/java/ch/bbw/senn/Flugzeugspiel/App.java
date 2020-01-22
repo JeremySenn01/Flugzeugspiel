@@ -23,12 +23,40 @@ public class App {
         List<Card> cards = reader.readCards();
         //Calculate solutions
         List<Board> solutions = SolutionCalculator.findAllSolutions(new Board(), cards);
-        printSolutions(solutions);
+        writeSolutionsToFile(solutions);
+        printSolutionsToConsole(solutions);
 
         System.out.println("solutions = " + solutions.size());
     }
 
-    public static void printSolutions(List<Board> solutions) {
+    public static void printSolutionsToConsole(List<Board> solutions) {
+//        for (Board board : solutions) {
+            List<Card> sortedCards = solutions.get(0).sortFieldsByCoordinates();
+            printCardRow(sortedCards.get(0), sortedCards.get(1), sortedCards.get(2));
+            printCardRow(sortedCards.get(3), sortedCards.get(4), sortedCards.get(5));
+            printCardRow(sortedCards.get(6), sortedCards.get(7), sortedCards.get(8));
+//        }
+    }
+
+    public static String getText(Plane plane) {
+        return plane.getColor().toString().toLowerCase() + " " + (plane.isFront() ? "x" : "y");
+    }
+
+    public static void printCardRow(Card first, Card second, Card third) {
+        System.out.format("  ----- %s -----       ----- %s -----       ----- %s -----\n", getText(first.getPlane(Direction.Up)), getText(second.getPlane(Direction.Up)), getText(third.getPlane(Direction.Up)));
+        System.out.println("  |                  |      |                  |      |                  |");
+        System.out.println("  |                  |      |                  |      |                  |");
+        System.out.println("  |                  |      |                  |      |                  |");
+        System.out.format(" %s        %s    %s        %s    %s        %s   \n", getText(first.getPlane(Direction.Left)), getText(first.getPlane(Direction.Right)), getText(second.getPlane(Direction.Left)), getText(second.getPlane(Direction.Right)), getText(third.getPlane(Direction.Left)), getText(third.getPlane(Direction.Right)));
+        System.out.println("  |                  |      |                  |      |                  |");
+        System.out.println("  |                  |      |                  |      |                  |");
+        System.out.println("  |                  |      |                  |      |                  |");
+        System.out.format("  ----- %s -----       ----- %s -----       ----- %s -----\n", getText(first.getPlane(Direction.Down)), getText(second.getPlane(Direction.Down)), getText(third.getPlane(Direction.Down)));
+        System.out.println();
+
+    }
+
+    public static void writeSolutionsToFile(List<Board> solutions) {
         File output = new File("files/solutions.txt");
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(output));
@@ -41,6 +69,7 @@ public class App {
                 writer.write("------------");
                 writer.newLine();
             }
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,7 +1,7 @@
 package ch.bbw.senn.Flugzeugspiel.beans;
 
 public enum Color {
-	RED,
+	WHITE,
 	GREEN,
-	BLUE,
+	BLACK,
 }
